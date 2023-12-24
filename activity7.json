@@ -1,0 +1,42 @@
+{
+    "AWSTemplateFormatVersion": "2010-09-09",
+    "Parameters": {
+        "cidrname": {
+            "Description": "this vpc cidr",
+            "Type": "String",
+            "Default": "10.100.0.0/16"
+        }
+    },
+    "Resources": {
+        "network": {
+            "Type": "AWS::EC2::VPC",
+            "Properties": {
+                "CidrBlock": {
+                    "Ref": "cidrname"
+                },
+                "Tags": [
+                    {
+                        "Key": "Name",
+                        "Value": "network"
+                    }
+                ]
+            }
+        },
+        "web": {
+            "Type": "AWS::EC2::Subnet",
+            "Properties": {
+                "AvailabilityZone": "ap-south-1a",
+                "VpcId": {
+                    "Ref": "network"
+                },
+                "CidrBlock": "10.100.0.0/24",
+                "Tags": [
+                    {
+                        "Key": "Name",
+                        "Value": "web"
+                    }
+                ]
+            }
+        }
+    }
+}

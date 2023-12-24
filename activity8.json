@@ -1,0 +1,18 @@
+{
+    "AWSTemplateFormatVersion": "2010-09-09",
+    "Resources": {
+        "vajjas3": {
+            "Type": "AWS::S3::Bucket",
+            "Properties": {
+                "AccessControl": "Private",
+                "BucketName": "learning1998",
+                "Tags": [
+                    {
+                        "Key": "Name",
+                        "Value": "vajjas3"
+                    }
+                ]
+            }
+        }
+    }
+}
